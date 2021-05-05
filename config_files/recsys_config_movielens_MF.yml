@@ -1,0 +1,28 @@
+experiment:
+  dataset: ncf_ml1m
+  data_config:
+    strategy: fixed
+    train_path: ../data/{0}/ml-1m.train.rating
+    test_path: ../data/{0}/ml-1m.test.rating
+  binarize: True
+  negative_sampling:
+    strategy: fixed
+    files: [ "<data_path>/ml-1m.test.negative" ]
+  top_k: 10
+  evaluation:
+    cutoffs: 10
+    simple_metrics: [HR, nDCG]
+  gpu: 0
+  external_models_path: ../external/models/__init__.py
+  models:
+    external.RendleMF:
+      meta:
+        validation_rate: 1
+        verbose: True
+        save_recs: True
+      epochs: 256 
+      factors: 32
+      lr: 0.002
+      reg: 0.005
+      m: 8
+      random_seed: 42

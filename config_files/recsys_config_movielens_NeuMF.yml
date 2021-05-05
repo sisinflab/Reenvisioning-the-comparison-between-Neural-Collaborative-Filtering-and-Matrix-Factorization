@@ -1,0 +1,30 @@
+experiment:
+  dataset: ncf_ml1m
+  data_config:
+    strategy: fixed
+    train_path: ../data/{0}/ml-1m.train.rating
+    test_path: ../data/{0}/ml-1m.test.rating
+  binarize: True
+  negative_sampling:
+    strategy: fixed
+    files: [ "<data_path>/ml-1m.test.negative" ]
+  top_k: 10
+  evaluation:
+    cutoffs: 10
+    simple_metrics: [HR, nDCG]
+  gpu: 0
+  external_models_path: ../external/models/__init__.py
+  models:
+    external.NeuMF:
+      meta:
+        verbose: True
+        save_recs: True
+        validation_rate: 1
+      mf_factors:  16
+      dropout: 0
+      is_mf_train: True
+      is_mlp_train: True
+      batch_size: 256
+      epochs: 100
+      lr: 0.001
+      m: 4

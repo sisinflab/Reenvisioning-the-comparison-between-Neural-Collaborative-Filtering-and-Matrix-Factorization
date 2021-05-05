@@ -1,0 +1,23 @@
+experiment:
+  dataset: ncf_ml1m
+  data_config:
+    strategy: fixed
+    train_path: ../data/{0}/ml-1m.train.rating
+    test_path: ../data/{0}/ml-1m.test.rating
+  binarize: True
+  negative_sampling:
+    strategy: fixed
+    files: [ "<data_path>/ml-1m.test.negative" ]
+  top_k: 10
+  evaluation:
+    cutoffs: 10
+    simple_metrics: [HR, nDCG]
+  gpu: 0
+  external_models_path: ../external/models/__init__.py
+  models:
+    PureSVD:
+      meta:
+        verbose: True
+        save_recs: True
+      factors: 52
+      seed: 42

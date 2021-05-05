@@ -1,0 +1,24 @@
+experiment:
+  dataset: ncf_pinterest
+  data_config:
+    strategy: fixed
+    train_path: ../data/{0}/pinterest-20.train.rating
+    test_path: ../data/{0}/pinterest-20.test.rating
+  binarize: True
+  negative_sampling:
+    strategy: fixed
+    files: [ "<data_path>/pinterest-20.test.negative" ]
+  top_k: 10
+  evaluation:
+    cutoffs: 10
+    simple_metrics: [HR, nDCG]
+  gpu: 0
+  external_models_path: ../external/models/__init__.py
+  models:
+    Slim:
+      meta:
+        verbose: True
+        save_recs: True
+      l1_ratio: 1.15e-04
+      alpha: 0.0526
+      neighborhood: 1000
