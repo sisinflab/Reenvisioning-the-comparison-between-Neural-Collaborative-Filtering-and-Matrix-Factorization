@@ -1,0 +1,22 @@
+experiment:
+  dataset: ncf_ml1m
+  data_config:
+    strategy: fixed
+    train_path: ../data/{0}/ml-1m.train.rating
+    test_path: ../data/{0}/ml-1m.test.rating
+  binarize: True
+  negative_sampling:
+    strategy: fixed
+    files: [ "<data_path>/ml-1m.test.negative" ]
+  top_k: 10
+  evaluation:
+    cutoffs: [10]
+    simple_metrics: [nDCG, nDCGRendle2020, HR, LAUC, F1, MAP, MAR, MRR, ACLT, APLT, ARP, PopREO, PopRSP, ItemCoverage, UserCoverage, NumRetrived, UserCoverage, Gini, SEntropy, EFD, EPC]
+    paired_ttest: True
+    wilcoxon_test: True
+  print_results_as_triplets: True
+  external_models_path: ../external/models/__init__.py
+  models:
+    RecommendationFolder:
+      folder: <recs_folder_path>
+

@@ -1,3 +1,14 @@
+import argparse
 from elliot.run import run_experiment
 
-run_experiment("config_files/recsys_config_movielens.yml")
+parser = argparse.ArgumentParser()
+parser.add_argument('--model', type=str, default='most_pop',
+                      help='Model name')
+
+args = parser.parse_args()
+
+if args.model in ['most_pop', 'MF', 'NeuMF', 'ials', 'slim', 'easer', 'rp3beta', 'pure_svd']:
+    run_experiment(f'''config_files/recsys_config_movielens_{args.model}.yml''')
+else:
+    raise ValueError('Model selected is not available for this experiment')
+
