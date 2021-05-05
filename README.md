@@ -23,7 +23,7 @@ Pinterest:
 pyhton experiments_p20.py --model <model_name>
 ```
 
-The placeholder _<model_name>_ must be in the range [most_pop, MF, NeuMF, ials, slim, easer, rp3beta, pure_svd]
+The placeholder _<model_name>_ must be in the range [most_pop, MF, NeuMF, ials, slim, easer, rp3beta, pure_svd]. Be careful it is __case sensitive__.
 
 
 All hyperparameters and configuration details for each models are placed into configuration files folder.
