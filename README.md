@@ -4,8 +4,23 @@ Configuration file, models and basic script to reproduce in Elliot the experimen
 
 #### Preliminary steps
 
-- Clone repo or download Elliot from [here](https://github.com/sisinflab/elliot/tree/sir_elliot)
-- Copy all folders and files from our repo into Elliot folder
+Clone this repo and create a pyhton envoirment to run these experiments:
+
+#### CONDA
+```bash
+cd <repo_path>
+conda create --name elliot_env python=3.8
+conda activate elliot_env
+pip install --upgrade pip
+```
+
+#### VIRTUALENV
+```bash
+cd <repo_path>
+virtualenv -p /usr/bin/python3.6 venv # your python location and version
+source venv/bin/activate
+pip install --upgrade pip
+```
 
 ## Replicate all baselines performance
 
