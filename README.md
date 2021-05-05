@@ -45,13 +45,13 @@ The first and third columns of table 2 and highlight points in figure 1 (line bl
 Movielens:
 
 ```pyhton
-pyhton experiments_ml1m.py --model NeuMF
+pyhton experiments_ml1m.py --model {NeuMF/MF}
 ```
 
 Pinterest:
 
 ```pyhton
-pyhton experiments_p20.py --model NeuMF
+pyhton experiments_p20.py --model NeuMF {NeuMF/MF}
 ```
 
 
