@@ -4,7 +4,7 @@ Configuration file, models and basic script to reproduce in Elliot the experimen
 
 #### Preliminary steps
 
-- Clone repo or download Elliot from here
+- Clone repo or download Elliot from [here](https://github.com/sisinflab/elliot/tree/sir_elliot)
 - Copy all folders and files from our repo into Elliot folder
 
 ## Replicate all baselines performance
