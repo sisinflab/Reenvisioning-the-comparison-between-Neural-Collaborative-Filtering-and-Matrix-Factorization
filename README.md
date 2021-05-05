@@ -1,4 +1,4 @@
-# Reenvisioning-the-comparison-between-Neural-Collaborative-Filtering-andMatrix-Factorization
+# Reenvisioning the comparison between Neural Collaborative Filtering and Matrix Factorization
 
 Configuration file, models and basic script to reproduce in Elliot the experiments from the paper: _Reenvisioning-the-comparison-between-Neural-Collaborative-Filtering-andMatrix-Factorization_
 
