@@ -4,7 +4,7 @@ Configuration file, models and basic script to reproduce in Elliot the experimen
 
 #### Preliminary steps
 
-Clone this repo and create a pyhton envoirment to run these experiments:
+Clone this repo and create a pyhton environment to run these experiments:
 
 #### CONDA
 ```bash
