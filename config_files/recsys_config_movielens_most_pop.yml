@@ -7,7 +7,7 @@ experiment:
   binarize: True
   negative_sampling:
     strategy: fixed
-    files: [ "<data_path>/ml-1m.test.negative" ]
+    files: [ "/home/ironman/PycharmProjects/Elliot/data/ncf_ml1m/ml-1m.test.negative" ]
   top_k: 10
   evaluation:
     cutoffs: 10
