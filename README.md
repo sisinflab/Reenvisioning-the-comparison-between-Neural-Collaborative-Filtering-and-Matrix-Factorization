@@ -28,14 +28,14 @@ The results of Table 1-3 and Figure 2-3-4 were generated with the following scri
 
 Movielens:
 
-```pyhton
-pyhton experiments_ml1m.py --model <model_name>
+```python
+python experiments_ml1m.py --model <model_name>
 ```
 
 Pinterest:
 
-```pyhton
-pyhton experiments_p20.py --model <model_name>
+```python
+python experiments_p20.py --model <model_name>
 ```
 
 The placeholder _<model_name>_ must be in the range [most_pop, MF, NeuMF, ials, slim, easer, rp3beta, pure_svd]. Be careful it is __case sensitive__.
@@ -47,8 +47,8 @@ These experiments generate all needed files to execute the overall evaluation to
 
 To execute the complete evaluation, copy all recommendation files from the result folder into a separate one, and then run the following script choosing the appropriate dataset name (movielens or pinterest)
 
-```pyhton
-pyhton evaluation.py --dataset <dataset_name>
+```python
+python evaluation.py --dataset <dataset_name>
 ```
 
 This script is driven by the file named `test_config_{movilens/pinterest}.yml`. Edit the placeholder with the specific recommendation folder.
@@ -59,14 +59,14 @@ The first and third columns of table 2 and highlight points in figure 1 (line bl
 
 Movielens:
 
-```pyhton
-pyhton experiments_ml1m.py --model {NeuMF/MF}
+```python
+python experiments_ml1m.py --model {NeuMF/MF}
 ```
 
 Pinterest:
 
-```pyhton
-pyhton experiments_p20.py --model NeuMF {NeuMF/MF}
+```python
+python experiments_p20.py --model NeuMF {NeuMF/MF}
 ```
 
 
