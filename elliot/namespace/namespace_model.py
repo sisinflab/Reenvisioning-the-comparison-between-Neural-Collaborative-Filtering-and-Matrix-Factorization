@@ -145,8 +145,10 @@ class NameSpaceModel:
                 setattr(self.base_namespace, p, self.config[_experiment][p])
 
             elif p == _negative_sampling and self.config[_experiment].get(p, {}):
-                self.config[_experiment][p].update({k: self._safe_set_path(self._base_folder_path_config, v, self.config[_experiment][_dataset])
-                                                    for k, v in self.config[_experiment][p].items()})
+                self.config[_experiment][p].update({k: self._set_path(self._base_folder_path_config,
+                                                                      s.format(self.config[_experiment][_dataset]))
+                                                    for k, v in self.config[_experiment][p].items()if
+                                                    isinstance(v, list) for s in v})
                 self.config[_experiment][p] = SimpleNamespace(**self.config[_experiment][p])
                 if getattr(self.config[_experiment][p], 'strategy', '') == 'random':
                     path = os.path.abspath(os.sep.join([self._base_folder_path_config, "..", "data",
