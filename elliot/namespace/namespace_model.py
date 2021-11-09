@@ -145,8 +145,13 @@ class NameSpaceModel:
                 setattr(self.base_namespace, p, self.config[_experiment][p])
 
             elif p == _negative_sampling and self.config[_experiment].get(p, {}):
-                negative_sampling_strategy = SimpleNamespace(**self.config[_experiment][p])
-                self.config[_experiment][p] = negative_sampling_strategy
+                self.config[_experiment][p].update({k: self._safe_set_path(self._base_folder_path_config, v, self.config[_experiment][_dataset])
+                                                    for k, v in self.config[_experiment][p].items()})
+                self.config[_experiment][p] = SimpleNamespace(**self.config[_experiment][p])
+                if getattr(self.config[_experiment][p], 'strategy', '') == 'random':
+                    path = os.path.abspath(os.sep.join([self._base_folder_path_config, "..", "data",
+                                                         self.config[_experiment][_dataset], "negative.tsv"]))
+                    setattr(self.config[_experiment][p], 'file_path', path)
                 setattr(self.base_namespace, p, self.config[_experiment][p])
             elif p == _evaluation and self.config[_experiment].get(p, {}):
                 complex_metrics = self.config[_experiment][p].get("complex_metrics", {})
